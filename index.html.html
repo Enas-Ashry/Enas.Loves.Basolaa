@@ -1,0 +1,766 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fff0f5">
+<title>Enas ♡ Basel</title>
+
+<style>
+:root {
+  --pink: #ff6f9f;
+  --deep: #b83d70;
+  --cream: #fff9f4;
+  --ink: #492b3a;
+  --lilac: #eee7ff;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: ui-rounded, "Trebuchet MS", system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+button, input { font: inherit; }
+
+button {
+  cursor: pointer;
+  border: 0;
+  border-radius: 999px;
+  padding: 13px 21px;
+  font-weight: 800;
+  background: var(--pink);
+  color: white;
+  box-shadow: 0 7px 0 #e9a1bb;
+  transition: .18s;
+}
+
+button:hover { transform: translateY(-2px); }
+
+button:active {
+  transform: translateY(3px);
+  box-shadow: 0 3px 0 #e9a1bb;
+}
+
+.secondary {
+  background: white;
+  color: var(--deep);
+  border: 2px solid #ffd0df;
+  box-shadow: 0 5px 0 #f5d5e0;
+}
+
+.wrap {
+  width: min(920px, 92%);
+  margin: auto;
+}
+
+.screen {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 48px 0;
+  position: relative;
+}
+
+.hero {
+  background:
+    radial-gradient(circle at 15% 20%, #ffe0eb, transparent 35%),
+    radial-gradient(circle at 85% 75%, #e9e0ff, transparent 35%),
+    #fff7f5;
+  text-align: center;
+  overflow: hidden;
+}
+
+.eyebrow {
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  font-size: .76rem;
+  font-weight: 900;
+  color: var(--deep);
+}
+
+h1 {
+  font-size: clamp(3rem, 11vw, 6.8rem);
+  line-height: .95;
+  margin: 16px 0;
+  color: #c94f80;
+  letter-spacing: -.06em;
+}
+
+h2 {
+  font-size: clamp(2rem, 7vw, 3.4rem);
+  line-height: 1.05;
+  margin: 8px 0 18px;
+  letter-spacing: -.04em;
+}
+
+p { line-height: 1.65; }
+
+.lead {
+  font-size: 1.12rem;
+  max-width: 560px;
+  margin: 0 auto 25px;
+}
+
+.tiny {
+  font-size: .85rem;
+  color: #8b6577;
+}
+
+.heart {
+  position: absolute;
+  opacity: .55;
+  animation: float 7s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.heart:nth-child(1) {
+  left: 8%; top: 15%; font-size: 2rem;
+}
+
+.heart:nth-child(2) {
+  right: 10%; top: 23%; font-size: 3rem;
+  animation-delay: -2s;
+}
+
+.heart:nth-child(3) {
+  left: 15%; bottom: 14%; font-size: 2.5rem;
+  animation-delay: -4s;
+}
+
+.heart:nth-child(4) {
+  right: 14%; bottom: 10%; font-size: 1.8rem;
+}
+
+@keyframes float {
+  50% { transform: translateY(-22px) rotate(12deg); }
+}
+
+.card {
+  background: white;
+  border: 2px solid #ffe0e9;
+  border-radius: 28px;
+  padding: clamp(22px, 5vw, 42px);
+  box-shadow: 0 15px 45px #a84d7012;
+}
+
+.center { text-align: center; }
+
+.section { padding: 75px 0; }
+
+.section:nth-of-type(even) {
+  background: #fff0f5;
+}
+
+.sub {
+  color: #8b6577;
+  max-width: 620px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 26px;
+}
+
+.memory {
+  background: white;
+  border: 2px dashed #f5b6cb;
+  border-radius: 22px;
+  padding: 14px;
+  min-height: 230px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+.memory img {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  height: auto;
+  object-fit: contain;
+  border-radius: 14px;
+  background: #fff0f5;
+  display: block;
+}
+
+
+.memory input {
+  width: 100%;
+  font-size: .85rem;
+}
+
+.memory label { font-weight: 800; }
+
+.reason {
+  background: white;
+  border-radius: 20px;
+  padding: 19px;
+  border: 2px solid #ffe0e9;
+  font-weight: 750;
+  min-height: 92px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-size: 1.05rem;
+}
+
+.reason-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.letter {
+  font-family: Georgia, serif;
+  font-size: 1.12rem;
+  line-height: 1.9;
+  white-space: pre-line;
+}
+
+.letter b { color: var(--deep); }
+
+.pill {
+  display: inline-block;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: #fff0f5;
+  color: var(--deep);
+  font-size: .82rem;
+  font-weight: 800;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
+
+.hidden { display: none !important; }
+
+.surprise {
+  background: linear-gradient(145deg, #ffdce8, #eee7ff);
+  text-align: center;
+}
+
+.big-heart {
+  font-size: 5rem;
+  animation: pulse 1.2s infinite;
+}
+
+@keyframes pulse {
+  50% { transform: scale(1.15); }
+}
+
+footer {
+  text-align: center;
+  padding: 28px;
+  color: #9b7485;
+  font-size: .85rem;
+}
+
+/* MUSIC BUTTON */
+
+.music {
+  position: fixed;
+  right: 14px;
+  bottom: 14px;
+  z-index: 5;
+  background: white;
+  color: var(--deep);
+  border: 2px solid #ffd0df;
+  box-shadow: 0 5px 18px #8c3b5c22;
+  padding: 11px 15px;
+}
+
+input[type=file] {
+  max-width: 100%;
+  color: #8b6577;
+}
+
+input[type=text] {
+  border: 1px solid #f4c7d6;
+  border-radius: 12px;
+  padding: 10px;
+  width: 100%;
+}
+
+@media(max-width:600px) {
+  .grid, .reason-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .memory { min-height: 210px; }
+
+  .section { padding: 58px 0; }
+
+  .music { font-size: .8rem; }
+
+  .lead { font-size: 1rem; }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC BUTTON -->
+
+<button class="music" id="musicBtn">
+  ♫ Play music
+</button>
+
+<!-- WELCOME PAGE -->
+
+<header class="screen hero">
+
+  <span class="heart">♡</span>
+  <span class="heart">♥</span>
+  <span class="heart">✦</span>
+  <span class="heart">♡</span>
+
+  <div class="wrap">
+
+    <div class="eyebrow">
+      To the love of my life
+    </div>
+
+    <h1>
+      Enas <span style="font-size:.55em">♡</span> Basel
+    </h1>
+
+    <p class="lead">
+      I made a little something for you to tell you how much I love and adore you and and how ridiculously lucky I'm
+      to have you.
+    </p>
+
+    <button onclick="document.querySelector('#memories').scrollIntoView()">
+      Open your gift ↓
+    </button>
+
+    <p class="tiny">
+      P.S. You are legally required to smile at least once.
+    </p>
+
+  </div>
+</header>
+
+
+<!-- بحبك يا باسل -->
+
+<section class="section" id="memories">
+
+<div class="wrap">
+
+  <div class="eyebrow">
+    Chapter 01 · The evidence
+  </div>
+
+  <h2>Us, being adorable 📸</h2>
+
+  <p class="sub">
+    I need you to know how lucky I'm to have you and how much I enjoy every moment I spend with you. Here are a few of my favourite memories of us.
+  </p>
+
+  <div class="grid">
+
+    <div class="memory">
+      <img alt="Memory one" src="/1.jfif" width='600' height='900'>
+
+      <label>Our Dumb moments</label>
+
+    </div>
+
+
+    <div class="memory">
+
+      <img alt="Memory two" src="/2.jfif" width='600' height='900'>
+
+      <label>A day I replay in my head</label>
+
+
+    </div>
+
+
+    <div class="memory">
+
+      <img alt="Memory three" src="/3.jfif" width='600' height='900'>
+
+
+      <label>One of a million smiles</label>
+
+
+    </div>
+
+
+    <div class="memory">
+
+      <img alt="Memory four" src="/4.jfif" width='600' height='900'>
+
+      <label>My favourite human</label>
+
+    </div>
+
+  </div>
+</div>
+</section>
+
+
+<!-- بحبك يا باسل  -->
+
+<section class="section">
+
+<div class="wrap center">
+
+  <div class="eyebrow">
+    Chapter 02 · A totally unbiased list
+  </div>
+
+  <h2>Reasons I love you 💗</h2>
+
+  <p class="sub" style="margin:auto">
+  I could list a thousand, but let's start here.
+  </p>
+
+  <div class="reason-grid" id="reasons"></div>
+
+  <button onclick="nextReason()">
+    Give me another reason
+  </button>
+
+</div>
+</section>
+
+
+<!-- LOVE LETTER -->
+
+<section class="section">
+
+<div class="wrap">
+
+  <div class="eyebrow">
+    Chapter 03 · No jokes for a second
+  </div>
+
+  <h2>A little letter for you 💌</h2>
+
+  <div class="card">
+
+    <div class="pill">To my Basel</div>
+
+    <p class="letter">My favourite person,
+
+I don't think I have told you enough how much you mean to me. You make ordinary things feel special, and somehow you manage to be my favourite notification and my favourite distraction.
+
+Thank you for the laughs, the little moments, the patience, and for being you. I love the way we can be silly together and still have the sweetest moments.
+
+I hope this little page reminds you that you are loved, appreciated, and very, very stuck with me.
+
+<b>All my love,</b>
+Enas ♡</p>
+
+  </div>
+</div>
+</section>
+
+
+<!-- بحبك يا باسل -->
+
+<section class="screen surprise" id="surprise">
+
+<div class="wrap">
+
+  <div class="eyebrow">
+    Final chapter · One last thing
+  </div>
+
+  <div class="big-heart">💗</div>
+
+  <h2>Okay, one final question…</h2>
+
+  <p class="lead">
+    Will you keep being my favourite person and let me annoy you
+    for a very, very long time?
+  </p>
+
+  <div class="actions">
+
+    <button onclick="yes()">
+      YES, obviously
+    </button>
+
+    <button class="secondary" id="noBtn"
+      onmouseover="dodge()" onclick="dodge()">
+      I need to think 🤨
+    </button>
+
+  </div>
+
+  <div id="answer" class="hidden card"
+    style="margin:28px auto 0;max-width:560px">
+
+    <h2>Correct answer!</h2>
+
+    <p>
+      You just unlocked unlimited hugs, kisses, and me stealing
+      your Love. <br>I love you, Basel.
+    </p>
+
+    <div class="big-heart">💞</div>
+
+  </div>
+
+</div>
+</section>
+
+
+<footer>
+  Made with love, a little chaos, and lots of pink · Enas ♡ Basel
+</footer>
+
+
+<script>
+
+/* REASONS */
+
+const reasons = [
+  "Because talking with you can fix a genuinely ridiculous day.",
+  "Because you make me laugh even when I'm trying to be serious.",
+  "Because being myself around you feels easy.",
+  "Because the little things you do never go unnoticed.",
+  "Because you are my favourite person to tell random things to.",
+  "Because even doing absolutely nothing with you is a good time.",
+  "Because you let me say Taztoz all the time.",
+  "Because I get to choose you, and I would choose you again."
+];
+
+let reasonIndex = 0;
+
+function renderReason() {
+  const box = document.getElementById('reasons');
+
+  box.innerHTML = '';
+
+  for (let i = 0; i < 4; i++) {
+    const d = document.createElement('div');
+
+    d.className = 'reason';
+
+    d.textContent = reasons[(reasonIndex + i) % reasons.length];
+
+    box.appendChild(d);
+  }
+}
+
+function nextReason() {
+  reasonIndex = (reasonIndex + 1) % reasons.length;
+  renderReason();
+}
+
+
+/* بحبك يا باسل  */
+
+function preview(input) {
+  if (input.files && input.files[0]) {
+
+    const reader = new FileReader();
+
+    reader.onload = e => {
+      input.parentElement.querySelector('img').src = e.target.result;
+    };
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+
+/* بحبك يا باسل */
+
+function yes() {
+
+  document.getElementById('answer').classList.remove('hidden');
+
+  document.getElementById('answer').scrollIntoView({
+    behavior: 'smooth',
+    block: 'center'
+  });
+
+  confetti();
+}
+
+
+/* بحبك يا باسل */
+
+function dodge() {
+
+  const b = document.getElementById('noBtn');
+
+  b.style.transform =
+    `translate(${Math.random()*100-50}px,${Math.random()*50-25}px)`;
+
+  b.textContent = [
+    'Nope 😌',
+    'Try again!',
+    'That button is shy',
+    'Wrong answer 😂'
+  ][Math.floor(Math.random()*4)];
+}
+
+
+/* بحبك يا باسل  */
+
+function confetti() {
+
+  for (let i = 0; i < 32; i++) {
+
+    const s = document.createElement('span');
+
+    s.textContent = ['💗','✨','💕','🌸'][i % 4];
+
+    s.style.cssText =
+      `position:fixed;
+      left:${Math.random()*100}vw;
+      top:-30px;
+      font-size:${16+Math.random()*20}px;
+      z-index:9;
+      pointer-events:none;
+      transition:transform 2.5s ease,opacity 2.5s;`;
+
+    document.body.appendChild(s);
+
+    requestAnimationFrame(() => {
+
+      s.style.transform =
+        `translateY(${window.innerHeight+80}px) rotate(${Math.random()*500}deg)`;
+
+      s.style.opacity = 0;
+
+    });
+
+    setTimeout(() => s.remove(), 2700);
+  }
+}
+
+renderReason();
+
+
+/* بحبك يا باسل */
+
+const audio = new Audio("./love-song.mp3");
+
+audio.loop = true;
+audio.volume = 0.45;
+audio.preload = "auto";
+
+const musicBtn = document.getElementById("musicBtn");
+
+let musicStarted = false;
+
+
+function updateMusicButton(playing) {
+
+  musicBtn.textContent = playing
+    ? "♫ Pause music"
+    : "♫ Play music";
+
+}
+
+
+async function startMusic() {
+
+  if (!audio.paused) return;
+
+  try {
+
+    await audio.play();
+
+    musicStarted = true;
+
+    updateMusicButton(true);
+
+  } catch (error) {
+
+    //بحبك يا باسل 
+
+    updateMusicButton(false);
+
+  }
+
+}
+
+
+/* بحبك يا باسل */
+
+window.addEventListener("load", () => {
+
+  startMusic();
+
+});
+
+
+/* بحبك يا باسل */
+
+document.addEventListener("pointerdown", () => {
+
+  if (audio.paused) {
+    startMusic();
+  }
+
+}, { once: true });
+
+
+/* بحبك يا باسل */
+
+musicBtn.addEventListener("click", async (event) => {
+
+  event.stopPropagation();
+
+  if (audio.paused) {
+
+    await startMusic();
+
+  } else {
+
+    audio.pause();
+
+    updateMusicButton(false);
+
+  }
+
+});
+
+
+/* بحبك يا باسل */
+
+audio.addEventListener("ended", () => {
+
+  updateMusicButton(false);
+
+});
+
+audio.addEventListener("error", () => {
+
+  musicBtn.textContent = "♫ Music unavailable";
+
+  console.warn(
+    "Couldn't find love-song.mp3. Put it beside index.html."
+  );
+
+});
+
+</script>
+
+</body>
+</html>
